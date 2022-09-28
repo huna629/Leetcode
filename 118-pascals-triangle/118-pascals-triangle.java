@@ -7,7 +7,6 @@ class Solution {
                 curr.add(0, 1);
                 
                 for(int j=1; j<i; j++){
-                    System.out.println("i = "+i+" j= "+j+" j-1"+ answer.get(i-1).get(j-1)+" j "+answer.get(i-1).get(j));
                     curr.add(j, answer.get(i-1).get(j-1)+answer.get(i-1).get(j));
                 }
                 curr.add(1);
@@ -15,7 +14,6 @@ class Solution {
                 curr.add(1);
             }
             answer.add(curr);
-            System.out.println(curr);
         }
         return answer;
     }
