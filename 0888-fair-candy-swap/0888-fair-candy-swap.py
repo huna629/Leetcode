@@ -3,7 +3,8 @@ class Solution:
         sumAlice = sum(aliceSizes)
         sumBob = sum(bobSizes)
         diff = (sumAlice-sumBob)//2
-        
-        for e in bobSizes:
-            if e+diff in aliceSizes:
+        setAlice = set(aliceSizes)
+        setBob = set(bobSizes)
+        for e in setBob:
+            if e+diff in setAlice:
                 return [diff+e, e]
