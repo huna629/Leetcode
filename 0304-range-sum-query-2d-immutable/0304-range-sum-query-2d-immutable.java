@@ -1,15 +1,19 @@
 class NumMatrix {
-    public static int[][] matrix;
+    private int[][] dp;
     public NumMatrix(int[][] matrix) {
-        this.matrix = matrix;    
+        if(matrix.length==0 || matrix[0].length==0) return;
+        dp = new int[matrix.length][matrix[0].length+1];
+        for(int r=0; r<matrix.length; r++){
+            for(int c=0; c<matrix[0].length; c++){
+                dp[r][c+1]=dp[r][c]+matrix[r][c];
+            }
+        }
     }
     
     public int sumRegion(int row1, int col1, int row2, int col2) {
         int ans = 0;
         for(int r=row1; r<=row2; r++){
-            for(int c=col1; c<=col2; c++){
-                ans+=this.matrix[r][c];
-            }
+            ans+=dp[r][col2+1]-dp[r][col1];
         }
         return ans;
     }
